@@ -39,7 +39,7 @@ function DescriptionList() {
   };
 
   return (
-    <div>
+    <>
       <dt id="keyEmail">Email:</dt>
       {isEditing ? (
         <form onSubmit={handleSave}>
@@ -78,7 +78,7 @@ function DescriptionList() {
           </div>
         </dd>
       )}
-    </div>
+    </>
   );
 }
 
