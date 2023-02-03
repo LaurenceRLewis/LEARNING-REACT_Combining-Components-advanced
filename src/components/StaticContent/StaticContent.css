@@ -5,30 +5,14 @@ body {
 }
 
 dl {
+  width: 50%;
   margin: 0 auto;
 }
 
 dt {
   font-weight: 700;
 }
-dd {
-  margin-left: 0;
-  margin-bottom: 1em;
-}
 dt,
 dd {
   padding: 10px;
-}
-
-button.btn--edit,
-button.btn--save {
-  margin-top: 1em;
-}
-
-.error-message {
-  color: red;
-}
-
-.status-message {
-  color: green;
 }

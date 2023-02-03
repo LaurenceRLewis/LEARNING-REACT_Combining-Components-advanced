@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
-import "./Name.css";
+//import "../../../src/styles.css";
 import "./Button.css";
 import { validateName } from "./NameValidation";
 
-function DescriptionList() {
+function EditName() {
   const [name, setName] = useState("John Stone");
   const [isEditing, setIsEditing] = useState(false);
   const [isValid, setIsValid] = useState(true);
@@ -83,4 +83,4 @@ function DescriptionList() {
   );
 }
 
-export default DescriptionList;
+export default EditName;

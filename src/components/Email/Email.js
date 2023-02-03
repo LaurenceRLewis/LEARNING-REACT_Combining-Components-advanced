@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
-import "./Email.css";
+//import "../../../src/styles.css";
 import "./Button.css";
 import { validateName } from "./EmailValidation";
 
-function DescriptionList() {
+function EditEmail() {
   const [email, setName] = useState("js@getnada.com");
   const [isEditing, setIsEditing] = useState(false);
   const [isValid, setIsValid] = useState(true);
@@ -82,4 +82,4 @@ function DescriptionList() {
   );
 }
 
-export default DescriptionList;
+export default EditEmail;
