@@ -1,0 +1,52 @@
+:root {
+  --edit-button-background-color: #007bff;
+  --edit-button-text-color: #fff;
+  --edit-button-focus-background-color: #0069d9;
+  --save-button-background-color: #7b1fa2;
+  --save-button-text-color: #fff;
+  --save-button-focus-background-color: #6200ee;
+}
+
+.btn--save,
+.btn--edit {
+  margin-top: 0.5em;
+}
+
+/*Edit button*/
+button.btn--edit {
+  background-color: var(--edit-button-background-color);
+  color: var(--edit-button-text-color);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button.btn--edit:focus:not(:focus-visible) {
+  outline: none;
+}
+
+button.btn--edit:focus-visible {
+  box-shadow: 0 0 0 3px var(--edit-button-focus-background-color);
+}
+
+/*SAVE button*/
+
+button.btn--save {
+  background-color: var(--save-button-background-color);
+  color: var(--save-button-text-color);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button.btn--save:focus:not(:focus-visible) {
+  outline: none;
+}
+
+button.btn--save:focus-visible {
+  box-shadow: 0 0 0 3px var(save-button-focus-background-color);
+}

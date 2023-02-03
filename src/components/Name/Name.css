@@ -1,0 +1,26 @@
+body {
+  font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 1em;
+}
+
+dl {
+  width: 50%;
+  margin: 0 auto;
+}
+
+dt {
+  font-weight: 700;
+}
+dt,
+dd {
+  padding: 10px;
+}
+
+.error-message {
+  color: red;
+}
+
+.status-message {
+  color: green;
+}
