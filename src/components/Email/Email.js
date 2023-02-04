@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-//import "../../../src/styles.css";
 import "./Button.css";
 import { validateName } from "./EmailValidation";
 
@@ -8,6 +7,7 @@ function EditEmail() {
   const [isEditing, setIsEditing] = useState(false);
   const [isValid, setIsValid] = useState(true);
   const [statusMessage, setStatusMessage] = useState("");
+  const [newEmail, setNewEmail] = useState(email);
   const editBtnRef = useRef(null);
 
   const handleEdit = () => {
@@ -15,21 +15,11 @@ function EditEmail() {
     setStatusMessage("");
   };
 
-  useEffect(() => {
-    if (isEditing) {
-      const form = document.querySelector("form");
-      const input = form.querySelector("input");
-      input.focus();
-    }
-  }, [isEditing]);
-
-  const handleSave = (event) => {
-    event.preventDefault();
-    const newName = event.target.email.value;
-    const isValid = validateName(newName);
+  const handleSave = () => {
+    const isValid = validateName(newEmail);
     setIsValid(isValid);
     if (isValid) {
-      setName(newName);
+      setName(newEmail);
       setIsEditing(false);
       setStatusMessage("Your email is successfully updated.");
       setTimeout(() => {
@@ -42,14 +32,15 @@ function EditEmail() {
     <>
       <dt id="keyEmail">Email:</dt>
       {isEditing ? (
-        <form onSubmit={handleSave}>
+        <>
           <dd>
             <input
               type="text"
               id="email"
-              email="email"
+              name="email"
               aria-labelledby="keyEmail"
-              defaultValue={email}
+              value={newEmail}
+              onChange={(e) => setNewEmail(e.target.value)}
               aria-invalid={!isValid}
               aria-errormessage={isValid ? "" : "email-error"}
             />
@@ -59,12 +50,12 @@ function EditEmail() {
               </p>
             )}
             <div>
-              <button className="btn--save" type="submit">
+              <button className="btn--save" onClick={handleSave}>
                 Save
               </button>
             </div>
           </dd>
-        </form>
+        </>
       ) : (
         <dd>
           {email}
