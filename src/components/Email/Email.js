@@ -19,7 +19,7 @@ function EditEmail() {
       setIsValid(isValid);
       if (isValid) {
         setEmail(newEmail);
-        setStatusMessage("Your name is successfully updated.");
+        setStatusMessage("Your Email is successfully updated.");
         setTimeout(() => {
           editBtnRef.current.focus();
         }, 0);
@@ -40,18 +40,17 @@ function EditEmail() {
         <dd>
           <input
             type="text"
-            id="name"
+            id="emailID"
             name="name"
             aria-labelledby="keyEmail"
             defaultValue={email}
             ref={inputRef}
             aria-invalid={!isValid}
-            aria-errormessage={isValid ? "" : "name-error"}
+            aria-errormessage={isValid ? "" : "email-error"}
           />
           {!isValid && (
-            <p id="name-error" className="error-message">
-              Error! Invalid character entered. Please enter a valid name using
-              letters A—z, hyphens and spaces.
+            <p id="email-error" className="error-message">
+              Error! Please enter a valid email address.
             </p>
           )}
           <div>
