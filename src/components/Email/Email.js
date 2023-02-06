@@ -72,11 +72,16 @@ function EditEmail() {
         <dd>
           {email}
           <div>
-            <button className="btn--edit" onClick={handleEdit} ref={editBtnRef}>
+            <button
+              aria-describedby="EmailSuccess"
+              className="btn--edit"
+              onClick={handleEdit}
+              ref={editBtnRef}
+            >
               Edit email
             </button>
           </div>
-          <div role="status">
+          <div id="EmailSuccess" aria-live="polite">
             {statusMessage && <p className="status-message">{statusMessage}</p>}
           </div>
         </dd>

@@ -72,11 +72,16 @@ function EditName() {
         <dd>
           {name}
           <div>
-            <button className="btn--edit" onClick={handleEdit} ref={editBtnRef}>
+            <button
+              id="NameSuccess"
+              className="btn--edit"
+              onClick={handleEdit}
+              ref={editBtnRef}
+            >
               Edit name
             </button>
           </div>
-          <div role="status">
+          <div id="NameSuccess" aria-live="polite">
             {statusMessage && <p className="status-message">{statusMessage}</p>}
           </div>
         </dd>
