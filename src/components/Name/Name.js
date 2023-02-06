@@ -1,38 +1,46 @@
 import React, { useState, useEffect, useRef } from "react";
-//import "../../../src/styles.css";
 import "./Button.css";
 import { validateName } from "./NameValidation";
 
 function EditName() {
-  const [name, setName] = useState("John Stone");
+  const [name, setName] = useState("Given name");
   const [isEditing, setIsEditing] = useState(false);
   const [isValid, setIsValid] = useState(true);
   const [statusMessage, setStatusMessage] = useState("");
+  const [nameInputCount, setNameInputCount] = useState(0);
   const editBtnRef = useRef(null);
   const inputRef = useRef(null);
 
   const handleEdit = () => {
-    setIsEditing(!isEditing);
-    setStatusMessage("");
-    if (isEditing) {
+    if (!isEditing) {
+      setIsEditing(true);
+      setStatusMessage("");
+      setTimeout(() => {
+        inputRef.current.focus();
+      }, 0);
+    } else {
       const newName = inputRef.current.value;
       const isValid = validateName(newName);
       setIsValid(isValid);
       if (isValid) {
         setName(newName);
-        setStatusMessage("Your name is successfully updated.");
+        setIsEditing(false);
+        setStatusMessage("Please enter a valid name");
         setTimeout(() => {
           editBtnRef.current.focus();
         }, 0);
+        setNameInputCount(0);
+      } else {
+        setNameInputCount(nameInputCount + 1);
       }
     }
   };
 
   useEffect(() => {
-    if (isEditing) {
+    if (!isValid && nameInputCount >= 1) {
       inputRef.current.focus();
     }
-  }, [isEditing]);
+  }, [isValid, nameInputCount]);
 
   return (
     <>
@@ -41,7 +49,7 @@ function EditName() {
         <dd>
           <input
             type="text"
-            id="name"
+            id="nameID"
             name="name"
             aria-labelledby="keyName"
             defaultValue={name}
@@ -51,8 +59,7 @@ function EditName() {
           />
           {!isValid && (
             <p id="name-error" className="error-message">
-              Error! Invalid character entered. Please enter a valid name using
-              letters A—z, hyphens and spaces.
+              Error! Please enter a valid name.
             </p>
           )}
           <div>

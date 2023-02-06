@@ -7,31 +7,40 @@ function EditEmail() {
   const [isEditing, setIsEditing] = useState(false);
   const [isValid, setIsValid] = useState(true);
   const [statusMessage, setStatusMessage] = useState("");
+  const [emailInputCount, setEmailInputCount] = useState(0);
   const editBtnRef = useRef(null);
   const inputRef = useRef(null);
 
   const handleEdit = () => {
-    setIsEditing(!isEditing);
-    setStatusMessage("");
-    if (isEditing) {
+    if (!isEditing) {
+      setIsEditing(true);
+      setStatusMessage("");
+      setTimeout(() => {
+        inputRef.current.focus();
+      }, 0);
+    } else {
       const newEmail = inputRef.current.value;
       const isValid = validateEmail(newEmail);
       setIsValid(isValid);
       if (isValid) {
         setEmail(newEmail);
+        setIsEditing(false);
         setStatusMessage("Your Email is successfully updated.");
         setTimeout(() => {
           editBtnRef.current.focus();
         }, 0);
+        setEmailInputCount(0);
+      } else {
+        setEmailInputCount(emailInputCount + 1);
       }
     }
   };
 
   useEffect(() => {
-    if (isEditing) {
+    if (!isValid && emailInputCount >= 1) {
       inputRef.current.focus();
     }
-  }, [isEditing]);
+  }, [isValid, emailInputCount]);
 
   return (
     <>
