@@ -3,6 +3,7 @@ import StaticContent from "./components/StaticContent/StaticContent";
 import Email from "./components/Email/Email";
 import Name from "./components/Name/Name";
 import "./components/Styles/styles.css";
+import "./components/Styles/Button.css";
 
 function App() {
   return (

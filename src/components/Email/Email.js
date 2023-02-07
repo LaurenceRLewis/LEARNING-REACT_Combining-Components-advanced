@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import "./Button.css";
 import { validateEmail } from "./EmailValidation";
 
 function EditEmail() {
@@ -62,25 +61,21 @@ function EditEmail() {
               Error! Please enter a valid email address.
             </p>
           )}
-          <div>
-            <button className="btn--save" onClick={handleEdit}>
-              Save
-            </button>
-          </div>
+          <button className="btn--save" onClick={handleEdit}>
+            Save
+          </button>
         </dd>
       ) : (
         <dd>
           {email}
-          <div>
-            <button
-              aria-describedby="EmailSuccess"
-              className="btn--edit"
-              onClick={handleEdit}
-              ref={editBtnRef}
-            >
-              Edit email
-            </button>
-          </div>
+          <button
+            aria-describedby="EmailSuccess"
+            className="btn--edit"
+            onClick={handleEdit}
+            ref={editBtnRef}
+          >
+            Edit email
+          </button>
           <div id="EmailSuccess" aria-live="polite">
             {statusMessage && <p className="status-message">{statusMessage}</p>}
           </div>

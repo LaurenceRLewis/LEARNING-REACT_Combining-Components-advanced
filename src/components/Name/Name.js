@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import "./Button.css";
 import { validateName } from "./NameValidation";
 
 function EditName() {
@@ -62,25 +61,21 @@ function EditName() {
               Error! Please enter a valid name.
             </p>
           )}
-          <div>
-            <button className="btn--save" onClick={handleEdit}>
-              Save
-            </button>
-          </div>
+          <button className="btn--save" onClick={handleEdit}>
+            Save
+          </button>
         </dd>
       ) : (
         <dd>
           {name}
-          <div>
-            <button
-              id="NameSuccess"
-              className="btn--edit"
-              onClick={handleEdit}
-              ref={editBtnRef}
-            >
-              Edit name
-            </button>
-          </div>
+          <button
+            id="NameSuccess"
+            className="btn--edit"
+            onClick={handleEdit}
+            ref={editBtnRef}
+          >
+            Edit name
+          </button>
           <div id="NameSuccess" aria-live="polite">
             {statusMessage && <p className="status-message">{statusMessage}</p>}
           </div>
