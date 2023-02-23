@@ -24,7 +24,7 @@ function EditName() {
       if (isValid) {
         setName(newName);
         setIsEditing(false);
-        setStatusMessage("Please enter a valid name");
+        setStatusMessage("You name was successfully updated!");
         setTimeout(() => {
           editBtnRef.current.focus();
         }, 0);
